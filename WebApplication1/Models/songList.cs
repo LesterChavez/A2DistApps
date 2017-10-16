@@ -34,17 +34,22 @@ namespace WebApplication1.Models
             return r;
         }
 
-        //public static bool Update(int id, Song UpdateSong)
-        //{
-        //    bool returnValue = false;
+        public static bool Update(int id, Song UpdateSong)
+        {
+            bool returnValue = false;
 
-        //    foreach (Song s in songs)
-        //        if (s.ID == id)
-        //    {
-        //            s.SongName = UpdateSong.SongName;
-        //            returnValue = true;
-        //    }
-        //    return returnValue;
-        //}
+            foreach (Song s in songs)
+                if (s.ID == id)
+                {
+                    s.SongName = UpdateSong.SongName;
+                    returnValue = true;
+                }
+            return returnValue;
+        }
+
+        public static void DeleteSong(int id)
+        {
+            songs.Remove(songs.Find(x => x.ID == id));
+        }
     }
 }
